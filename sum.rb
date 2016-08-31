@@ -9,7 +9,7 @@ class Approximation
   def value
     required =Hash.new
     eventtime=0
-    @events_list.each_with_index do |(event_name, event_time),index|
+    @events_list.each_with_index do |event_name, event_time|
         unless eventtime ==@session && eventtime >@session
           eventtime+=event_time.to_i
           required.merge!({event_name => event_time})
@@ -35,6 +35,6 @@ class Approximation
     else
       difference = required.to_a - @events_list.to_a 
     end
-    remaining = Hash[*difference.flatten]
+    Hash[*difference.flatten]
   end
 end
