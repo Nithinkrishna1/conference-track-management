@@ -20,12 +20,12 @@ class Approximation
           end
         end
     end
-     
+      
     required.each do |event_name, event_time|
-      p "#{Time_calculator.new(@program_time).cur_time}: #{event_name} #{event_time}"
+      p "#{Time_calculator.new(@program_time,@events_list).cur_time}: #{event_name} #{event_time}"
       @program_time = @program_time + (event_time.to_i)*60
     end
-    return difference(required)
+     difference(required)
   end
 
   def difference(required)
